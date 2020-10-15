@@ -4,14 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>Progressbar</title>
 </head>
 <body>
     <div id="app">
         <div class="content">
-            <progress class="progress is-primary" value="15" max="100">15%</progress>
+            <progress class="progress is-primary" v-bind:value="arrayLength" max="10"></progress>
+            <div class="columns">
+                <div class="column has-text-centered">
+                    <button v-on:click="setElement()" class="button is-primary is-half">Добавить</button>
+                </div>
+                <div class="column has-text-centered">
+                    <button class="button is-primary is-half">Очистить</button>
+                </div>
+            </div>
+            <p v-if="showMessage">В массиве уже более 10 элементов</p>
         </div>
     </div>
+    <script src="main.js"></script>
 </body>
 </html>
