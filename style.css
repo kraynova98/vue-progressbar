@@ -3,3 +3,6 @@
     width: 700px;
 }
 
+.progress::-webkit-progress-value {
+    transition: width 0.5s ease;
+  }
