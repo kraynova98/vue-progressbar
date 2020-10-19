@@ -1,22 +1,29 @@
 var app = new Vue({
     el: '#app',
     data: {
-      array: []
+        array: [],
+        count: ""
     },
     computed: {
-        arrayLength: function() {
+        isFull: function() {
+            return this.countIsEmpty ? false : this.array.length >= this.count;
+        },
+        length: function() {
             return this.array.length;
         },
-        showMessage: function() {
-            return this.arrayLength >= 10;
+        countIsEmpty: function() {
+            return this.count == "";
         }
     },
     methods: {
         setElement: function() {
-            this.array.push('cat');
+            if (!this.countIsEmpty && !this.isFull) {
+                this.array.push('cat');
+            }
         },
+        
         clear: function() {
             this.array = [];
         }
     }
-  })
+})

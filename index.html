@@ -11,16 +11,22 @@
 <body>
     <div id="app">
         <div class="content">
-            <progress class="progress is-warning" v-bind:value="arrayLength" max="10"></progress>
+            <progress class="progress is-warning" :value="array.length" :max="count"></progress>
+            <p>{{ length }}</p>
             <div class="columns">
                 <div class="column has-text-centered">
-                    <button v-on:click="setElement()" class="button is-primary">Добавить</button>
+                    <button @click="setElement()" class="button is-primary" :disabled="isFull">Добавить</button>
                 </div>
                 <div class="column has-text-centered">
-                    <button v-on:click="clear()" class="button is-danger is-light">Очистить</button>
+                    <button @click="clear()" class="button is-danger is-light">Очистить</button>
                 </div>
             </div>
-            <p v-if="showMessage">В массиве уже более 10 элементов</p>
+            <p v-if="isFull">В массиве уже более {{ count }} элементов</p>
+            <div class="field">
+                <div class="control">
+                  <input class="input is-primary" type="number" v-model="count" placeholder="Введите число">
+                </div>
+              </div>
         </div>
     </div>
     <script src="main.js"></script>
