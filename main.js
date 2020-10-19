@@ -1,33 +1,27 @@
 var app = new Vue({
     el: '#app',
     data: {
-      array: [],
-      arrayLength: 0,
-      showMessage: false
+      array: []
     },
     computed: {
-        get: function() {
-            this.arrayLength >= 10 ? true : false; 
+        arrayLength: function() {
+            return this.array.length;
+        },
+        showMessage: function() {
+            return this.arrayLength >= 10 ? true : false;
         }
     },
     watch: {
         arrayLength: function() {
-            if(this.arrayLength >= 10) {
-                this.showMessage = true;
-                this.arrayLength = 10;
-            }else {
-                this.showMessage = false;
-            }
+            this.arrayLength >= 10 ? this.arrayLength = 10 : this.arrayLength;
         }
     },
     methods: {
         setElement: function() {
             this.array.push('cat');
-            this.arrayLength = this.array.length;
         },
         clear: function() {
             this.array = [];
-            this.arrayLength = 0;
         }
     }
   })
