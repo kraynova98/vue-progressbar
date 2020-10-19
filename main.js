@@ -11,11 +11,6 @@ var app = new Vue({
             return this.arrayLength >= 10;
         }
     },
-    watch: {
-        arrayLength: function() {
-            this.arrayLength >= 10 ? this.arrayLength = 10 : this.arrayLength;
-        }
-    },
     methods: {
         setElement: function() {
             this.array.push('cat');
