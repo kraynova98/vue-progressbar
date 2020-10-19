@@ -8,7 +8,7 @@ var app = new Vue({
             return this.array.length;
         },
         showMessage: function() {
-            return this.arrayLength >= 10 ? true : false;
+            return this.arrayLength >= 10;
         }
     },
     watch: {
